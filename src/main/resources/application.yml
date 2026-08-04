@@ -13,5 +13,8 @@ spring:
       ddl-auto: update
     show-sql: true
 
+jwt:
+  secret: ${JWT_SECRET:cambia_este_valor_en_produccion_por_uno_largo_y_aleatorio}
+
 # Variables de entorno esperadas en produccion:
 # DB_USERNAME, DB_PASSWORD, JWT_SECRET, STORAGE_BUCKET, STORAGE_ACCESS_KEY, STORAGE_SECRET_KEY
