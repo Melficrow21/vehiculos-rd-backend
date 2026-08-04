@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: vehiculos-rd-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vehiculos_rd
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Variables de entorno esperadas en produccion:
+# DB_USERNAME, DB_PASSWORD, JWT_SECRET, STORAGE_BUCKET, STORAGE_ACCESS_KEY, STORAGE_SECRET_KEY
