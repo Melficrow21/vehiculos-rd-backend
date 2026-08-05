@@ -14,6 +14,9 @@ API REST para la plataforma de compra y venta de vehículos (República Dominica
 2. Crear una base de datos PostgreSQL local llamada `vehiculos_rd`.
 3. Copiar variables de entorno necesarias (ver `application.yml`):
    - `DB_USERNAME`, `DB_PASSWORD`
+   - `STORAGE_BUCKET`, `STORAGE_ENDPOINT`, `STORAGE_ACCESS_KEY`, `STORAGE_SECRET_KEY`, `STORAGE_PUBLIC_URL`
+     (credenciales de Cloudflare R2 o AWS S3 — sin esto la subida de fotos no funciona,
+     pero el resto de la app sigue funcionando normal)
 4. Ejecutar:
    ```bash
    mvn spring-boot:run

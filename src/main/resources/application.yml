@@ -16,5 +16,13 @@ spring:
 jwt:
   secret: ${JWT_SECRET:cambia_este_valor_en_produccion_por_uno_largo_y_aleatorio}
 
+storage:
+  bucket: ${STORAGE_BUCKET:}
+  endpoint: ${STORAGE_ENDPOINT:}
+  access-key: ${STORAGE_ACCESS_KEY:}
+  secret-key: ${STORAGE_SECRET_KEY:}
+  public-url: ${STORAGE_PUBLIC_URL:}
+
 # Variables de entorno esperadas en produccion:
-# DB_USERNAME, DB_PASSWORD, JWT_SECRET, STORAGE_BUCKET, STORAGE_ACCESS_KEY, STORAGE_SECRET_KEY
+# DB_USERNAME, DB_PASSWORD, JWT_SECRET,
+# STORAGE_BUCKET, STORAGE_ENDPOINT, STORAGE_ACCESS_KEY, STORAGE_SECRET_KEY, STORAGE_PUBLIC_URL
