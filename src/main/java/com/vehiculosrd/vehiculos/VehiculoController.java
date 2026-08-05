@@ -35,6 +35,13 @@ public class VehiculoController {
         return vehiculoService.listar(marca, modelo, anio, precioMin, precioMax, provincia);
     }
 
+    // GET /api/vehiculos/mios -> las publicaciones del usuario logueado, en cualquier estado.
+    // Requiere estar logueado. Va antes de /{id} para que no choque la ruta.
+    @GetMapping("/mios")
+    public List<VehiculoResponse> listarMios(Authentication auth) {
+        return vehiculoService.listarPorUsuario(auth.getName());
+    }
+
     // GET /api/vehiculos/{id} -> detalle. Publico.
     @GetMapping("/{id}")
     public ResponseEntity<?> obtener(@PathVariable UUID id) {

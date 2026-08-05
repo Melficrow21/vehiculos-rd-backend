@@ -45,6 +45,17 @@ public class VehiculoService {
         return VehiculoResponse.desde(vehiculo);
     }
 
+    // Todas las publicaciones del usuario logueado, sin filtrar por estado
+    // (asi puede ver tambien las pausadas, vendidas o rechazadas)
+    public List<VehiculoResponse> listarPorUsuario(String emailUsuario) {
+        Specification<Vehiculo> filtro = (root, query, cb) ->
+                cb.equal(root.get("usuario").get("email"), emailUsuario);
+
+        return vehiculoRepository.findAll(filtro).stream()
+                .map(VehiculoResponse::desde)
+                .toList();
+    }
+
     public VehiculoResponse crear(VehiculoRequest request, String emailUsuario) {
         Usuario usuario = obtenerUsuarioPorEmail(emailUsuario);
 

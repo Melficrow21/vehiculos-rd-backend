@@ -34,6 +34,9 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // Rutas públicas: cualquiera puede entrar sin token
                 .requestMatchers("/api/auth/**").permitAll()
+                // Esta regla especifica va ANTES que la regla general de GET /api/vehiculos/**,
+                // porque Spring Security usa la PRIMERA regla que haga match.
+                .requestMatchers(HttpMethod.GET, "/api/vehiculos/mios").authenticated()
                 .requestMatchers(HttpMethod.GET, "/api/vehiculos/**").permitAll()
                 .requestMatchers("/api/usuarios/**").permitAll()
                 // Rutas de admin: solo usuarios con rol ADMIN
