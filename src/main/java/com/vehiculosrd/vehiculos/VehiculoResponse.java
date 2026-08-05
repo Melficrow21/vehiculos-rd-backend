@@ -21,6 +21,7 @@ public class VehiculoResponse {
     private UUID vendedorId;
     private String vendedorNombre;
     private String vendedorRol;
+    private String vendedorTelefono;
 
     public static VehiculoResponse desde(Vehiculo v) {
         VehiculoResponse r = new VehiculoResponse();
@@ -37,6 +38,7 @@ public class VehiculoResponse {
         r.vendedorId = v.getUsuario().getId();
         r.vendedorNombre = v.getUsuario().getNombre();
         r.vendedorRol = v.getUsuario().getRol();
+        r.vendedorTelefono = v.getUsuario().getTelefono();
         return r;
     }
 
@@ -55,4 +57,5 @@ public class VehiculoResponse {
     public UUID getVendedorId() { return vendedorId; }
     public String getVendedorNombre() { return vendedorNombre; }
     public String getVendedorRol() { return vendedorRol; }
+    public String getVendedorTelefono() { return vendedorTelefono; }
 }
